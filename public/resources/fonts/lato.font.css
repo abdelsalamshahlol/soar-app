@@ -1,0 +1,10 @@
+/**
+    Using Lato font locally for missing 600 weight
+ */
+@font-face {
+  font-family: 'Lato';
+  src: url('Lato-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
