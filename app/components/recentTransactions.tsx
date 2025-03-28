@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'motion/react';
-interface RecentTransactionsProps {
+export interface RecentTransactionsProps {
   data: RecentTransactionProp[];
 }
 
@@ -22,7 +22,7 @@ export function RecentTransactions({ data }: RecentTransactionsProps) {
   );
 }
 
-interface RecentTransactionProp {
+export interface RecentTransactionProp {
   id: number;
   desc: string;
   paymentType: 'cash' | 'card' | 'paypal';

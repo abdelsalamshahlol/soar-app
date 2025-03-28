@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-interface CreditCardProps {
+export interface CreditCardProps {
   balance: string;
   currency: string;
   cardHolder: string;

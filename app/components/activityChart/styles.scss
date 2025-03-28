@@ -1,0 +1,40 @@
+$space: 10px;
+$width: 15px;
+$deposit-color: rgba(57, 106, 255, 1);
+$withdraw-color: rgba(35, 35, 35, 1);
+
+.deposit-legend {
+  background: $deposit-color;
+}
+
+.withdraw-legend {
+  background: $withdraw-color;
+}
+
+.ct-series-a .ct-bar {
+  stroke: $withdraw-color;
+  stroke-linecap: round;
+  transform: translate(-$space);
+  stroke-width: $width;
+}
+
+.ct-series-b .ct-bar {
+  stroke: $deposit-color;
+  stroke-linecap: round;
+  transform: translate($space);
+  stroke-width: $width;
+}
+
+.ct-grid {
+  stroke: rgba(243, 243, 245, 1);
+  stroke-dasharray: none;
+}
+
+.ct-label {
+  padding-top: 17px;
+  color: rgba(113, 142, 191, 1);
+}
+
+.ct-chart {
+  padding-top: 22px;
+}

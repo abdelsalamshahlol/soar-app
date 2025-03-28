@@ -1,7 +1,7 @@
 import { CreditCard } from '~/components/creditCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta = {
+const meta: Meta<typeof CreditCard> = {
   title: 'Widgets/Credit Card',
   component: CreditCard,
   parameters: {},

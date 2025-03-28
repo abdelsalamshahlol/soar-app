@@ -1,7 +1,7 @@
-import { RecentTransactions } from '~/components/recentTransactions';
+import { type RecentTransactionProp, RecentTransactions } from '~/components/recentTransactions';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta = {
+const meta: Meta<typeof RecentTransactions> = {
   title: 'Widgets/Recent Transactions',
   component: RecentTransactions,
   parameters: {},
@@ -12,11 +12,12 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof RecentTransactions>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-const TRANSACTIONS = [
+
+const TRANSACTIONS: RecentTransactionProp[] = [
   {
     id: 1,
     direction: 'out',
@@ -45,15 +46,17 @@ const TRANSACTIONS = [
     currency: '$',
   },
 ];
+
 export const Primary: Story = {
   args: {
-    data: TRANSACTIONS.slice(1),
+    data: TRANSACTIONS.slice(1), // Only show part of the transactions
   },
 };
 
 export const Scrollable: Story = {
   args: {
-    data: TRANSACTIONS.concat([
+    data: [
+      ...TRANSACTIONS,
       {
         id: 230,
         direction: 'out',
@@ -63,6 +66,6 @@ export const Scrollable: Story = {
         amount: '1,400',
         currency: '$',
       },
-    ]),
+    ],
   },
 };
