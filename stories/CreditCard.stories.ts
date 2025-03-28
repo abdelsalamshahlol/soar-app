@@ -18,6 +18,7 @@ export const Dark: Story = {
     cardHolder: 'Eddy Cusuma',
     expiry: '12/22',
     cardNumber: '3778 **** **** 1234',
+    cardLogo: '/resources/icons/mastercard-2.png',
   },
 };
 
