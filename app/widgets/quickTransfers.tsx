@@ -1,4 +1,4 @@
-import { Carousel } from '~/widgets/carousel';
+import { Carousel } from 'app/components/carousel';
 import { ClientOnly } from '~/widgets/clientOnly';
 import { clsx } from 'clsx';
 import { type FormEvent, useState } from 'react';

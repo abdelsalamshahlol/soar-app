@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ActivityChart } from '~/components/activityChart';
+import { ActivityChart } from 'app/widgets/activityChart';
 
 const meta: Meta<typeof ActivityChart> = {
   title: 'Widgets/Activity Chart',

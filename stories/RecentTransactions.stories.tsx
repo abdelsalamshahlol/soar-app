@@ -1,4 +1,4 @@
-import { type RecentTransactionProp, RecentTransactions } from '~/components/recentTransactions';
+import { type RecentTransactionProp, RecentTransactions } from '~/widgets/recentTransactions';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof RecentTransactions> = {

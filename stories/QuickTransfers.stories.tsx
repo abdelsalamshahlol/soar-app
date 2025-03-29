@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { QuickTransfers } from '~/components/quickTransfers';
+import { QuickTransfers } from '~/widgets/quickTransfers';
 
 const meta: Meta<typeof QuickTransfers> = {
   title: 'Widgets/Quick Transfers',
