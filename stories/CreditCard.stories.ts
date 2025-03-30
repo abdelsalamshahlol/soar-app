@@ -1,4 +1,4 @@
-import { CreditCard } from '~/components/creditCard';
+import { CreditCard } from '~/widgets/creditCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof CreditCard> = {

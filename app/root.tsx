@@ -2,6 +2,8 @@ import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration }
 
 import type { Route } from './+types/root';
 import './app.css';
+import { Sidebar } from '~/layouts/sidebar';
+import { Nav } from '~/layouts/nav';
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -29,7 +31,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] grid-rows-[190px_1fr] md:grid-rows-[100px_1fr] h-screen">
+          <Sidebar classList="hidden md:block row-span-2" />
+          <Nav />
+          <main className="bg-gray-100">{children}</main>
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>

@@ -9,6 +9,13 @@
   --color-dark-gray: rgba(35, 35, 35, 1);
   --color-emerald-green: rgba(65, 212, 168, 1);
   --color-vivid-rose: rgba(255, 75, 74, 1);
+  --color-stuble-blue-tint: rgba(237, 241, 247, 1);
+  --color-barely-gray: rgba(230, 239, 245, 1);
+  --color-dark-gray-tint: rgba(177, 177, 177, 1);
+  --color-light-gray: rgba(245, 247, 250, 1);
+  --color-placeholder-blue: rgba(139, 163, 203, 1);
+  --color-input-field-placeholder-blue: rgba(113, 142, 191, 1);
+  --color-input-border-white: rgba(223, 234, 242, 1);
 }
 
 html,
@@ -52,4 +59,13 @@ body::-webkit-scrollbar-thumb,
   .tiny-sb {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
