@@ -3,6 +3,7 @@ import { useId } from 'react';
 
 export interface InputFieldProps {
   title?: string;
+  name?: string;
   placeholder?: string;
   id?: string;
   type?: HTMLInputElement['type'];
@@ -11,7 +12,16 @@ export interface InputFieldProps {
   required?: boolean;
 }
 
-export function InputField({ title, value, placeholder, id, type = 'text', disabled, required }: InputFieldProps) {
+export function InputField({
+  title,
+  value,
+  placeholder,
+  id,
+  type = 'text',
+  disabled,
+  required,
+  name,
+}: InputFieldProps) {
   const inputId = id || useId();
 
   return (
@@ -19,6 +29,7 @@ export function InputField({ title, value, placeholder, id, type = 'text', disab
       {title && <span className="block pb-3 text-dark-gray">{title}</span>}
       <input
         id={inputId}
+        name={name}
         value={value}
         disabled={disabled}
         placeholder={placeholder}

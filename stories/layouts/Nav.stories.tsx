@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Nav } from '~/layouts/nav';
+import { reactRouterParameters, withRouter } from 'storybook-addon-remix-react-router';
 
 const meta: Meta<typeof Nav> = {
   title: 'Layout/Navbar',
@@ -10,7 +11,13 @@ const meta: Meta<typeof Nav> = {
         <Story />
       </div>
     ),
+    withRouter,
   ],
+  parameters: {
+    reactRouter: reactRouterParameters({
+      routing: { useStoryElement: true, path: '*' },
+    }),
+  },
 };
 
 export default meta;

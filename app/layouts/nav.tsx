@@ -1,10 +1,25 @@
 import { clsx } from 'clsx';
+import { useLocation } from 'react-router';
+import { useEffect, useState } from 'react';
 
 interface NavProps {
   classList?: string;
 }
 
+const pageTitles: Record<string, string> = {
+  '/': 'Overview',
+  '/settings': 'Settings',
+};
+
 export function Nav({ classList }: NavProps) {
+  const location = useLocation();
+  const [title, setTitle] = useState<string>('Overview');
+
+  useEffect(() => {
+    const currentTitle = pageTitles[location.pathname] || 'Oopss!';
+    setTitle(currentTitle);
+  }, [location.pathname]);
+
   return (
     <div
       className={clsx(
@@ -12,7 +27,7 @@ export function Nav({ classList }: NavProps) {
         classList
       )}
     >
-      <div className="font-semibold text-[28px] leading-none text-slate-blue">Overview</div>
+      <div className="font-semibold text-[28px] leading-none text-slate-blue">{title}</div>
 
       <div className="relative flex items-center">
         <input
