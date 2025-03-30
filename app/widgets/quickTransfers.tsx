@@ -93,7 +93,7 @@ export function TransferForm({ contact }: TransferFormProps) {
       <div className="text-xs text-light-blue md:text-base leading-none ">Write Amount</div>
 
       <form
-        className="rounded-[50px] flex justify-between max-w-4/6 lg:max-w-[265px] w-auto h-[50px] bg-stuble-blue-tint"
+        className="relative rounded-[50px] flex justify-between max-w-4/6 lg:max-w-[265px] w-auto h-[50px] bg-stuble-blue-tint"
         onSubmit={handleSubmit}
       >
         <label htmlFor="amount" className="sr-only">
@@ -145,8 +145,9 @@ export function TransferForm({ contact }: TransferFormProps) {
             )}
           </AnimatePresence>
         </button>
+
+        {error && <small className="text-red-500 text-xs pt-1 pl-3 absolute top-[3.4rem]">{error}</small>}
       </form>
-      {error && <small className="text-red-500 text-xs pt-1 pl-3 absolute">{error}</small>}
     </div>
   );
 }
