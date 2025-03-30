@@ -96,7 +96,7 @@ const balanceHistroy = {
 export default function Home() {
   return (
     <>
-      <div className="flex flex-wrap gap-x-[30px] gap-y-6 px-6 md:px-10 py-6">
+      <div className="flex flex-wrap gap-x-[30px] gap-y-6 px-6 md:px-10 py-6  max-w-7xl mx-auto">
         <div className="flex flex-wrap justify-between w-full gap-y-5.5">
           <section className="w-full lg:w-[730px]">
             <div className="flex justify-between">

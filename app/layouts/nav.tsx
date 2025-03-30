@@ -27,7 +27,7 @@ export function Nav({ classList }: NavProps) {
           'bg-white w-full flex items-center justify-between font-inter py-5 px-10 h-[100px] md:border-b border-barely-gray'
         )}
       >
-        <button className="">
+        <button className="md:hidden">
           <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fill-rule="evenodd"
