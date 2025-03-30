@@ -3,6 +3,7 @@ import { ClientOnly } from '~/widgets/clientOnly';
 import { clsx } from 'clsx';
 import { type FormEvent, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { useAccountStore } from '~/stores/main';
 
 interface Contact {
   id: number;
@@ -15,6 +16,7 @@ interface QuickTransferProps {
 }
 export function QuickTransfers({ contacts }: QuickTransferProps) {
   const [selected, setSelected] = useState<Contact | null>(null);
+
   const selectContact = (contact: Contact) => {
     setSelected(contact);
   };
@@ -69,6 +71,7 @@ export function TransferForm({ contact }: TransferFormProps) {
   const [amount, setAmount] = useState<number | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>();
+  const sendMoney = useAccountStore((state) => state.sendMoney);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -87,6 +90,7 @@ export function TransferForm({ contact }: TransferFormProps) {
     setLoading(true);
 
     const id = setTimeout(() => {
+      sendMoney(amount);
       setAmount(null);
       setLoading(false);
       clearTimeout(id);

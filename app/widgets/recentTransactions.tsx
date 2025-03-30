@@ -1,10 +1,14 @@
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'motion/react';
+import { useAccountStore } from '~/stores/main';
+import { formatMoney } from '~/util';
 export interface RecentTransactionsProps {
-  data: RecentTransactionProp[];
+  data?: RecentTransactionProp[];
 }
 
 export function RecentTransactions({ data }: RecentTransactionsProps) {
+  const transactions = useAccountStore((state) => state.transactions) || data;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -13,7 +17,7 @@ export function RecentTransactions({ data }: RecentTransactionsProps) {
       className="w-full lg:max-w-[350px]"
     >
       <div className=" gap-y-2.5 flex flex-col tiny-sb overflow-auto h-[235px] rounded-[25px] font-lato p-[25px] bg-white">
-        {data.map((data: RecentTransactionProp, i) => (
+        {transactions.map((data: RecentTransactionProp, i) => (
           <Transaction {...data} key={i} isHighlighted={data.id === i + 1} />
         ))}
       </div>
@@ -26,7 +30,7 @@ export interface RecentTransactionProp {
   desc: string;
   paymentType: 'cash' | 'card' | 'paypal';
   direction: 'in' | 'out';
-  date: string;
+  date: string | Date;
   amount: string;
   currency: string;
   isHighlighted?: boolean;
@@ -69,7 +73,7 @@ function Transaction({
       >
         {direction === 'in' ? '+' : '-'}
         {currency}
-        {amount}
+        {formatMoney(amount)}
       </div>
     </div>
   );
