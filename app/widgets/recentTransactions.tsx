@@ -13,9 +13,7 @@ export function RecentTransactions({ data }: RecentTransactionsProps) {
     >
       <div className="w-[350px] gap-y-2.5 flex flex-col tiny-sb overflow-auto h-[235px] rounded-[25px] font-lato p-[25px] bg-white">
         {data.map((data: RecentTransactionProp, i) => (
-          <div>
-            <Transaction {...data} key={i} isHighlighted={data.id === i + 1} />
-          </div>
+          <Transaction {...data} key={i} isHighlighted={data.id === i + 1} />
         ))}
       </div>
     </motion.div>

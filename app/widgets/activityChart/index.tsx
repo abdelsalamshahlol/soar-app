@@ -50,12 +50,10 @@ export function ActivityChart({ labels, series, srTitle = 'Bar chart data' }: Ac
     >
       <div className="flex justify-end gap-x-8 font-inter text-light-blue text-base font-normal pt-7 pr-8">
         {legend?.map((d, i) => (
-          <>
-            <div className="flex items-center gap-x-2.5">
-              <div className={clsx(`h-[15px] w-[15px] rounded-full ${d.toLowerCase()}-legend`)}></div>
-              <div>{d}</div>
-            </div>
-          </>
+          <div className="flex items-center gap-x-2.5" key={i}>
+            <div className={clsx(`h-[15px] w-[15px] rounded-full ${d.toLowerCase()}-legend`)}></div>
+            <div>{d}</div>
+          </div>
         ))}
       </div>
 

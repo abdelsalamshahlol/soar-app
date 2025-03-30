@@ -100,7 +100,7 @@ export function TransferForm({ contact }: TransferFormProps) {
             Enter amount
           </label>
           <input
-            value={String(amount)}
+            value={amount ? String(amount) : ''}
             onChange={(e) => setAmount(parseFloat(e.target.value))}
             type="number"
             id="amount"
