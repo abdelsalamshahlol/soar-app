@@ -1,0 +1,52 @@
+$space: 10px;
+$width: 15px;
+$width-sm: 8px;
+$deposit-color: rgba(57, 106, 255, 1);
+$withdraw-color: rgba(35, 35, 35, 1);
+
+@mixin mobile {
+  @media screen and (max-width: 500px) {
+    stroke-width: $width-sm;
+    transform: translate($space - 10);
+  }
+}
+
+.deposit-legend {
+  background: $deposit-color;
+}
+
+.withdraw-legend {
+  background: $withdraw-color;
+}
+
+.ct-bar-chart {
+  padding-top: 22px;
+
+  .ct-series-a .ct-bar {
+    stroke: $withdraw-color;
+    stroke-linecap: round;
+    transform: translate(-$space);
+    stroke-width: $width;
+
+    @include mobile;
+  }
+
+  .ct-series-b .ct-bar {
+    stroke: $deposit-color;
+    stroke-linecap: round;
+    transform: translate($space);
+    stroke-width: $width;
+
+    @include mobile;
+  }
+
+  .ct-grid {
+    stroke: rgba(243, 243, 245, 1);
+    stroke-dasharray: none;
+  }
+
+  .ct-label {
+    padding-top: 17px;
+    color: rgba(113, 142, 191, 1);
+  }
+}

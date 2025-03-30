@@ -1,8 +1,21 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-lato: 'Lato', sans-serif;
+  --color-semi-transparent-gray: rgba(255, 255, 255, 0.7);
+  --color-slate-blue: rgba(52, 60, 106, 1);
+  --color-light-blue: rgba(113, 142, 191, 1);
+  --color-dark-gray: rgba(35, 35, 35, 1);
+  --color-emerald-green: rgba(65, 212, 168, 1);
+  --color-vivid-rose: rgba(255, 75, 74, 1);
+  --color-stuble-blue-tint: rgba(237, 241, 247, 1);
+  --color-barely-gray: rgba(230, 239, 245, 1);
+  --color-dark-gray-tint: rgba(177, 177, 177, 1);
+  --color-light-gray: rgba(245, 247, 250, 1);
+  --color-placeholder-blue: rgba(139, 163, 203, 1);
+  --color-input-field-placeholder-blue: rgba(113, 142, 191, 1);
+  --color-input-border-white: rgba(223, 234, 242, 1);
 }
 
 html,
@@ -12,4 +25,47 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+body {
+  --sb-track-color: #f5f5f5;
+  --sb-thumb-color: var(--color-light-blue);
+  --sb-size: 10px;
+  --sb-size-sm: 6px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.tiny-sb::-webkit-scrollbar {
+  width: var(--sb-size-sm);
+}
+
+body::-webkit-scrollbar-track,
+.tiny-sb::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--sb-track-color);
+}
+
+body::-webkit-scrollbar-thumb,
+.tiny-sb::-webkit-scrollbar-thumb {
+  background-color: var(--sb-thumb-color);
+  border-radius: 6px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body,
+  .tiny-sb {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }

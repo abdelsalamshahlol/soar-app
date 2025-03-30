@@ -1,87 +1,70 @@
-# Welcome to React Router!
+# SOAR Dashboard App
 
-A modern, production-ready template for building full-stack React applications using React Router.
+This is a modern, responsive dashboard application built using React and a variety of tools to enhance performance, accessibility, and user experience.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## 🚀 Tech Stack
 
-## Features
+- **React 19** - Frontend framework
+- **Zustand** - State management
+- **Tailwind CSS** - Styling
+- **Framer Motion** - Animations
+- **Chartist** - Data visualization
+- **Storybook** - Component development & testing
+- **Chromatic** - UI review & accessibility tests
+- **Vercel** - Hosting & SSR deployment
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## 📦 Setup Instructions
 
-## Getting Started
+### Prerequisites
 
-### Installation
+- **Node.js LTS v22** (Ensure it's installed)
+- **Package Manager** (npm or yarn)
 
-Install the dependencies:
+### Installation & Running
 
-```bash
-npm install
+1. Clone the repository:
+
+```sh
+   git clone [repo-url]
+   cd [project-folder]
 ```
 
-### Development
+2. Install dependencies:
 
-Start the development server with HMR:
-
-```bash
-npm run dev
+```sh
+   npm install
 ```
 
-Your application will be available at `http://localhost:5173`.
+3. Install dependencies:
 
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
+```sh
+   npm run build
 ```
 
-## Deployment
+### 📌 Assumptions
 
-### Docker Deployment
+The app is primarily static, with API integration planned for future optimization.
 
-To build and run using Docker:
+Deployment is SSR (Server-Side Rendering) on Vercel for better user experience.
 
-```bash
-docker build -t my-app .
+Mobile elements maintain desktop dimensions to ensure UI consistency across devices.
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+Performance optimization will be done post-deployment based on monitoring & bottlenecks.
 
-The containerized application can be deployed to any platform that supports Docker, including:
+### ✨ Features
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+Smooth Animations with Framer Motion
 
-### DIY Deployment
+Quick Transfer functionality
 
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
+Avatar Selection
 
-Make sure to deploy the output of `npm run build`
+SVG Sprite for Icons for optimized rendering
 
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
+Responsive & Accessible Design
 
-## Styling
+### 🌍 Deployment
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+Hosted on Vercel
 
----
-
-Built with ❤️ using React Router.
+Live URL: https://soar-app-sigma.vercel.app/

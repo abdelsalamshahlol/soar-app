@@ -5,3 +5,6 @@
 /.react-router/
 /build/
 .idea
+*storybook.log
+.husky
+.vercel
