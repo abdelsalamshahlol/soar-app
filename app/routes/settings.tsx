@@ -17,15 +17,21 @@ export default function Settings() {
   return (
     <div className="px-6 md:px-10 py-6 font-inter max-w-7xl mx-auto">
       <div className="bg-white rounded-[25px] p-[30px]">
-        <div className="flex gap-x-4 sm:gap-x-18 md:gap-x-30 lg:gap-x-[74px]  ">
+        <div className="flex gap-x-4 sm:gap-x-18 md:gap-x-30 lg:gap-x-[74px]" tabIndex={0}>
           <div className="relative">
-            <div className="text-dark-gray text-base leading-none font-medium ml-4">Edit Profile</div>
+            <div className="text-dark-gray text-base leading-none font-medium ml-4" tabIndex={0}>
+              Edit Profile
+            </div>
             <div className="absolute w-[114px] h-[3px] bg-dark-gray -bottom-5.5 left-0 rounded-t-[10px]"></div>
           </div>
 
-          <div className="text-light-blue text-base leading-none font-medium">Preferences</div>
+          <div className="text-light-blue text-base leading-none font-medium" tabIndex={0}>
+            Preferences
+          </div>
 
-          <div className="text-light-blue text-base leading-none font-medium">Security</div>
+          <div className="text-light-blue text-base leading-none font-medium" tabIndex={0}>
+            Security
+          </div>
         </div>
 
         <hr className="border-[#F4F5F7] mt-5" />

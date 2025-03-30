@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { PieChart } from 'chartist';
 import './styles.scss';
+import { motion } from 'motion/react';
 
 export interface ActivityPieChartProps {
   labels: string[];
@@ -50,28 +51,34 @@ export function StatsChart({ labels, series }: ActivityPieChartProps) {
   }, [labels, series]);
 
   return (
-    <div
-      className="bg-white rounded-[25px] lg:w-[350px] h-[322px] flex flex-col items-center py-[30px]"
-      role="graphics-document"
-      aria-labelledby="pieChartTitle"
-      tabIndex={0}
+    <motion.div
+      initial={{ opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4, easing: 'ease-out' }}
     >
-      <h2 id="pieChartTitle" className="sr-only">
-        Pie chart showing category distribution
-      </h2>
+      <div
+        className="bg-white rounded-[25px] lg:w-[350px] h-[322px] flex flex-col items-center py-[30px]"
+        role="graphics-document"
+        aria-labelledby="pieChartTitle"
+        tabIndex={0}
+      >
+        <h2 id="pieChartTitle" className="sr-only">
+          Pie chart showing category distribution
+        </h2>
 
-      <div ref={chartRef} className="ct-chart-pie relative"></div>
+        <div ref={chartRef} className="ct-chart-pie relative"></div>
 
-      <div className="sr-only">
-        <h3>Category Breakdown</h3>
-        <ul>
-          {labels.map((label, idx) => (
-            <li key={idx}>
-              {label}: {series[idx]}%
-            </li>
-          ))}
-        </ul>
+        <div className="sr-only">
+          <h3>Category Breakdown</h3>
+          <ul>
+            {labels.map((label, idx) => (
+              <li key={idx}>
+                {label}: {series[idx]}%
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
