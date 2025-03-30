@@ -4,7 +4,7 @@ import { SectionHeader } from '~/components/sectionHeader';
 import { RecentTransactions } from '~/widgets/recentTransactions';
 import { ActivityChart } from '~/widgets/activityChart';
 import { QuickTransfers } from '~/widgets/quickTransfers';
-
+import { Index as BalanceHistoryChart } from '~/widgets/balanceHistoryChart';
 export function meta({}: Route.MetaArgs) {
   return [{ title: 'SOAR | Home' }, { name: 'description', content: 'Welcome to React Router!' }];
 }
@@ -84,42 +84,66 @@ const contacts = [
   },
 ];
 
+const balanceHistroy = {
+  labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+  series: [
+    {
+      // name: 'Deposit',
+      data: [200, 400, 250, 800, 150, 200, 750, 500],
+    },
+  ],
+};
 export default function Home() {
   return (
     <>
       <div className="flex flex-wrap gap-x-[30px] gap-y-6 px-6 md:px-10 py-6">
-        <section className="w-full md:w-[calc(50%-12px)] lg:w-[730px]">
-          <div className="flex justify-between">
-            <SectionHeader title="My Cards" />
-            <a href="#" className="font-inter font-semibold text-base leading-none text-slate-blue">
-              See all
-            </a>
-          </div>
-          <div className="flex gap-[30px]">
-            <CreditCard {...cardInfo} />
-            <CreditCard {...cardInfo} theme={'light'} />
-          </div>
-        </section>
+        <div className="flex flex-wrap justify-between w-full gap-y-5.5">
+          <section className="w-full lg:w-[730px]">
+            <div className="flex justify-between">
+              <SectionHeader title="My Cards" />
+              <a href="#" className="font-inter font-semibold text-base leading-none text-slate-blue">
+                See all
+              </a>
+            </div>
+            <div className="flex flex-nowrap gap-[30px] overflow-x-auto">
+              <div className="">
+                <CreditCard {...cardInfo} />
+              </div>
+              <div className="">
+                <CreditCard {...cardInfo} theme={'light'} />
+              </div>
+            </div>
+          </section>
 
-        <section className="w-full md:w-[calc(50%-12px)] lg:w-[350px]">
-          <SectionHeader title="Recent Transaction" />
-          <RecentTransactions data={recentTransactions} />
-        </section>
+          <section className="w-full lg:w-[350px]">
+            <SectionHeader title="Recent Transaction" />
+            <RecentTransactions data={recentTransactions} />
+          </section>
+        </div>
 
-        <section className="w-full md:w-[calc(50%-12px)] lg:w-[730px]">
-          <SectionHeader title="Weekly Activity" />
-          <ActivityChart {...activityChart} />
-        </section>
+        <div className="flex justify-between flex-wrap w-full gap-y-5.5">
+          <section className="w-full lg:w-[730px]">
+            <SectionHeader title="Weekly Activity" />
+            <ActivityChart {...activityChart} />
+          </section>
 
-        <section className="w-full md:w-[calc(50%-12px)] lg:w-[350px]">
-          <SectionHeader title="Expense Statistics" />
-          <div>WIP</div>
-        </section>
+          <section className="w-full lg:w-[350px]">
+            <SectionHeader title="Expense Statistics" />
+            <div>WIP</div>
+          </section>
+        </div>
 
-        <section className="w-full md:w-[calc(50%-12px)] lg:w-[350px]">
-          <SectionHeader title="Quick Transfer" />
-          <QuickTransfers contacts={contacts} />
-        </section>
+        <div className="flex justify-between flex-wrap w-full gap-y-5.5">
+          <section className="w-full xl:w-[445px]">
+            <SectionHeader title="Quick Transfer" />
+            <QuickTransfers contacts={contacts} />
+          </section>
+
+          <section className="w-full xl:w-[635px]">
+            <SectionHeader title="Balance History" />
+            <BalanceHistoryChart {...balanceHistroy} />
+          </section>
+        </div>
       </div>
     </>
   );

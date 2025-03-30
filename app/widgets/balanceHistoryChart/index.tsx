@@ -45,11 +45,11 @@ export function Index({ labels, series, srTitle = 'Line chart with area data' }:
 
   return (
     <div
-      className="bg-white rounded-[25px] w-[730px] h-[322px]"
+      className="bg-white rounded-[25px] w-full xl:w-[635px] h-[276px]"
       aria-label={`${srTitle} chart`}
       role="graphics-document"
     >
-      <div className="flex justify-end gap-x-8 font-inter text-light-blue text-base font-normal pt-7 pr-8">
+      <div className="flex justify-end gap-x-8 font-inter text-light-blue text-base font-normal">
         {legend?.map((d, i) => (
           <div className="flex items-center gap-x-2.5" key={i}>
             <div className={clsx(`h-[15px] w-[15px] rounded-full ${d?.toLowerCase()}-legend`)}></div>

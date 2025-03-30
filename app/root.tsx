@@ -31,8 +31,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <div className="grid grid-cols-[250px_1fr] grid-rows-[100px_1fr] h-screen">
-          <Sidebar classList="row-span-2" />
+        <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] grid-rows-[190px_1fr] md:grid-rows-[100px_1fr] h-screen">
+          <Sidebar classList="hidden md:block row-span-2" />
           <Nav />
           <main className="bg-gray-100">{children}</main>
         </div>

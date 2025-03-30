@@ -44,7 +44,7 @@ export function ActivityChart({ labels, series, srTitle = 'Bar chart data' }: Ac
 
   return (
     <div
-      className="bg-white rounded-[25px] w-[730px] h-[322px]"
+      className="bg-white rounded-[25px] w-full lg:w-[730px] h-[322px]"
       aria-label={`${srTitle} chart`}
       role="graphics-document"
     >
@@ -57,7 +57,7 @@ export function ActivityChart({ labels, series, srTitle = 'Bar chart data' }: Ac
         ))}
       </div>
 
-      <div ref={chartRef} className="ct-chart"></div>
+      <div ref={chartRef} className="ct-bar-chart"></div>
 
       <div className="sr-only">
         <h2>{srTitle}</h2>

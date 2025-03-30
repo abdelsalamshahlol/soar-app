@@ -22,7 +22,7 @@ export function Carousel({ children }: CarouselProps) {
 
       <button
         onClick={handleNext}
-        className="absolute top-10 bg-white right-0 flex items-center justify-center h-[50px] w-[50px] rounded-full text-light-blue "
+        className="hidden lg:flex absolute top-10 bg-white right-0 items-center justify-center h-[50px] w-[50px] rounded-full text-light-blue "
         style={btnStyle}
       >
         <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">

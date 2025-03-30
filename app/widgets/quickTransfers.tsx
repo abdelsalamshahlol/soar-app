@@ -20,9 +20,9 @@ export function QuickTransfers({ contacts }: QuickTransferProps) {
   };
 
   return (
-    <div className="w-[445px] h-[276px] rounded-[25px] font-inter py-[35px] px-[25px]  bg-white">
+    <div className="w-full lg:max-w-[445px] h-[276px] rounded-[25px] font-inter py-[35px] px-[25px]  bg-white">
       <ClientOnly>
-        <div className="-ml-9">
+        <div className="lg:-ml-9">
           <Carousel>
             {contacts.map((c: Contact, i) => (
               <Contact {...c} isSelected={c.id === selected?.id} onClick={() => selectContact(c)} key={i} />
@@ -43,7 +43,7 @@ interface ContactProps extends Contact {
 export function Contact({ name, title, imgSrc, isSelected = false, onClick }: ContactProps) {
   return (
     <div
-      className={clsx('flex flex-col items-center transition-all duration-300 ease-in-out', {
+      className={clsx('w-4/6 lg:w-auto flex flex-col items-center transition-all duration-300 ease-in-out', {
         'font-bold': isSelected,
       })}
       onClick={onClick}
@@ -51,8 +51,8 @@ export function Contact({ name, title, imgSrc, isSelected = false, onClick }: Co
       tabIndex={0}
     >
       <img src={imgSrc} alt={`${name} contact`} width={70} height={70} />
-      <div className="text-dark-gray text-base pt-[15px] leading-none">{name}</div>
-      <div className="text-light-blue text-[15px] pt-[5px]">{title}</div>
+      <div className="text-dark-gray text-sm lg:text-base pt-[15px] leading-none">{name}</div>
+      <div className="text-light-blue text-sm lg:text-[15px] pt-[5px]">{title}</div>
     </div>
   );
 }
@@ -90,64 +90,63 @@ export function TransferForm({ contact }: TransferFormProps) {
 
   return (
     <div className="mt-[29px] flex justify-between items-center">
-      <div className="text-light-blue text-base leading-none ">Write Amount</div>
-      <div>
-        <form
-          className="rounded-l-[50px] flex max-w-[265px] w-auto h-[50px] bg-stuble-blue-tint"
-          onSubmit={handleSubmit}
-        >
-          <label htmlFor="amount" className="sr-only">
-            Enter amount
-          </label>
-          <input
-            value={amount ? String(amount) : ''}
-            onChange={(e) => setAmount(parseFloat(e.target.value))}
-            type="number"
-            id="amount"
-            inputMode="numeric"
-            className="pl-[30px] text-light-blue leading-none w-[140px] outline-none focus:ring-2 focus:ring-blue-400"
-            aria-describedby="send-button"
-          />
+      <div className="text-xs text-light-blue md:text-base leading-none ">Write Amount</div>
 
-          <button
-            id="send-button"
-            disabled={loading}
-            type="submit"
-            className={clsx(
-              'relative flex items-center justify-center rounded-[50px] w-[125px] text-base leading-none font-medium text-white focus:ring-2 focus:ring-blue-400',
-              { 'bg-dark-gray': !loading },
-              { 'bg-slate-blue': loading }
+      <form
+        className="rounded-[50px] flex justify-between max-w-4/6 lg:max-w-[265px] w-auto h-[50px] bg-stuble-blue-tint"
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="amount" className="sr-only">
+          Enter amount
+        </label>
+        <input
+          value={amount ? String(amount) : ''}
+          onChange={(e) => setAmount(parseFloat(e.target.value))}
+          type="number"
+          id="amount"
+          inputMode="numeric"
+          className="pl-[30px] text-light-blue leading-none w-8/12 xl:w-[140px] outline-none focus:ring-2 focus:ring-blue-400"
+          aria-describedby="send-button"
+        />
+
+        <button
+          id="send-button"
+          disabled={loading}
+          type="submit"
+          className={clsx(
+            'relative flex items-center justify-center rounded-[50px] w-[100px] lg:w-[125px] text-base leading-none font-medium text-white focus:ring-2 focus:ring-blue-400',
+            { 'bg-dark-gray': !loading },
+            { 'bg-slate-blue': loading }
+          )}
+          aria-label="Send amount"
+        >
+          <AnimatePresence>
+            {loading ? (
+              <motion.div
+                key="loading"
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 5 }}
+                className="text-white absolute"
+              >
+                Sending...
+              </motion.div>
+            ) : (
+              <motion.div
+                key="send"
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 5 }}
+                className="absolute  flex gap-x-2.5 items-center flex-nowrap justify-center"
+              >
+                Send
+                <img src="/resources/icons/paper-plane.png" alt="send icon" width={26} height={23} />
+              </motion.div>
             )}
-            aria-label="Send amount"
-          >
-            <AnimatePresence>
-              {loading ? (
-                <motion.div
-                  key="loading"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 5 }}
-                  className="text-white absolute"
-                >
-                  Sending...
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="send"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 5 }}
-                  className="absolute  flex gap-x-2.5 items-center flex-nowrap justify-center"
-                >
-                  Send
-                  <img src="/resources/icons/paper-plane.png" alt="send icon" width={26} height={23} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </button>
-        </form>
-        {error && <small className="text-red-500 text-xs pt-1 pl-3 absolute">{error}</small>}
-      </div>
+          </AnimatePresence>
+        </button>
+      </form>
+      {error && <small className="text-red-500 text-xs pt-1 pl-3 absolute">{error}</small>}
     </div>
   );
 }

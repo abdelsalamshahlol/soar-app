@@ -10,8 +10,9 @@ export function RecentTransactions({ data }: RecentTransactionsProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, easing: 'ease-out' }}
+      className="w-full lg:max-w-[350px]"
     >
-      <div className="w-[350px] gap-y-2.5 flex flex-col tiny-sb overflow-auto h-[235px] rounded-[25px] font-lato p-[25px] bg-white">
+      <div className=" gap-y-2.5 flex flex-col tiny-sb overflow-auto h-[235px] rounded-[25px] font-lato p-[25px] bg-white">
         {data.map((data: RecentTransactionProp, i) => (
           <Transaction {...data} key={i} isHighlighted={data.id === i + 1} />
         ))}
