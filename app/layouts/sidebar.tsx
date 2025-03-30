@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { clsx } from 'clsx';
+interface NavProps {
+  classList?: string;
+}
 
 const navItems = [
   {
@@ -50,7 +53,7 @@ const navItems = [
   },
 ];
 
-export function Sidebar() {
+export function Sidebar({ classList }: NavProps) {
   const [active, setActive] = useState<string>('/');
   const [indicatorTop, setIndicatorTop] = useState<number>(0);
   const navRef = useRef<HTMLElement>(null);
@@ -64,7 +67,12 @@ export function Sidebar() {
   }, [active]);
 
   return (
-    <aside className="bg-white flex flex-col w-[250px] border-r border-barely-gray font-inter px-[38px] pt-[34px] ">
+    <aside
+      className={clsx(
+        'bg-white flex flex-col w-[250px] border-r border-barely-gray font-inter px-[38px] pt-[34px] h-screen',
+        classList
+      )}
+    >
       <div className="flex items-center gap-x-2.5 pb-16">
         <img src="/resources/icons/app-icon.png" alt="Soar App" width={35} height={35} />
         <span className="font-extrabold text-[25px] leading-none text-slate-blue">Soar Task</span>

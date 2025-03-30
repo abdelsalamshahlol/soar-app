@@ -12,6 +12,8 @@
   --color-stuble-blue-tint: rgba(237, 241, 247, 1);
   --color-barely-gray: rgba(230, 239, 245, 1);
   --color-dark-gray-tint: rgba(177, 177, 177, 1);
+  --color-light-gray: rgba(245, 247, 250, 1);
+  --color-placeholder-blue: rgba(139, 163, 203, 1);
 }
 
 html,
