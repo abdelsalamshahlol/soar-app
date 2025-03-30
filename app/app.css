@@ -10,6 +10,8 @@
   --color-emerald-green: rgba(65, 212, 168, 1);
   --color-vivid-rose: rgba(255, 75, 74, 1);
   --color-stuble-blue-tint: rgba(237, 241, 247, 1);
+  --color-barely-gray: rgba(230, 239, 245, 1);
+  --color-dark-gray-tint: rgba(177, 177, 177, 1);
 }
 
 html,
