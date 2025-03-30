@@ -5,6 +5,7 @@ import { RecentTransactions } from '~/widgets/recentTransactions';
 import { ActivityChart } from '~/widgets/activityChart';
 import { QuickTransfers } from '~/widgets/quickTransfers';
 import { Index as BalanceHistoryChart } from '~/widgets/balanceHistoryChart';
+import { StatsChart } from '~/components/statsChart';
 export function meta({}: Route.MetaArgs) {
   return [{ title: 'SOAR | Home' }, { name: 'description', content: 'Welcome to React Router!' }];
 }
@@ -93,6 +94,11 @@ const balanceHistroy = {
     },
   ],
 };
+
+const statsChart = {
+  labels: ['Entertainment', 'Bill Expense', 'Others', 'Investment'],
+  series: [30, 15, 35, 20],
+};
 export default function Home() {
   return (
     <>
@@ -129,7 +135,7 @@ export default function Home() {
 
           <section className="w-full lg:w-[350px]">
             <SectionHeader title="Expense Statistics" />
-            <div>WIP</div>
+            <StatsChart {...statsChart} />
           </section>
         </div>
 

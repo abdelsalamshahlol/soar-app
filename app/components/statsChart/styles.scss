@@ -1,32 +1,55 @@
-//.ct-chart-pie {
-//  .ct-slice-pie {
-//    stroke: white;
-//    stroke-width: 6px;
-//    // todo figure out how to animate on each direction
-//    &:hover {
-//      transition: all 400ms ease-in-out;
-//      transform: translate(4px, -4px);
-//    }
-//  }
-//
-//  & .ct-series-a .ct-slice-pie {
-//    fill: rgba(52, 60, 106, 1);
-//  }
-//
-//  .ct-label {
-//    font-family: Inter, sans-serif;
-//
-//    font-size: 12px;
-//    text-align: center;
-//    color: rgba(255, 255, 255, 1);
-//    line-height: 18px;
-//    font-weight: 700;
-//
-//    .value {
-//      font-size: 16px;
-//    }
-//    .label {
-//      font-size: 13px;
-//    }
-//  }
-//}
+$transition: all 150ms ease-in-out;
+
+.ct-chart-pie {
+  .ct-slice-pie {
+    stroke: white;
+    stroke-width: 6px;
+  }
+
+  & .ct-series-a .ct-slice-pie {
+    fill: rgba(52, 60, 106, 1);
+
+    &:hover {
+      transition: $transition;
+      transform: translate(4px, -4px);
+    }
+  }
+
+  & .ct-series-b .ct-slice-pie {
+    fill: rgba(252, 121, 0, 1);
+
+    &:hover {
+      transition: $transition;
+      transform: translate(4px, 4px);
+    }
+  }
+
+  & .ct-series-c .ct-slice-pie {
+    fill: rgba(35, 35, 35, 1);
+
+    &:hover {
+      transition: $transition;
+      transform: translate(-4px, 4px);
+    }
+  }
+
+  & .ct-series-d .ct-slice-pie {
+    fill: rgba(57, 106, 255, 1);
+
+    &:hover {
+      transition: $transition;
+      transform: translate(-4px, -4px);
+    }
+  }
+
+  .ct-label {
+    font-family: Inter, sans-serif;
+    color: rgba(255, 255, 255, 1);
+    line-height: 18px;
+    font-weight: 700;
+
+    @media screen and (max-width: 500px) {
+      font-size: 12px;
+    }
+  }
+}

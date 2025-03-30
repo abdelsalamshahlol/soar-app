@@ -18,9 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    // labels: ['Entertainment', 'Bill Expense'],
     labels: ['Entertainment', 'Bill Expense', 'Others', 'Investment'],
     series: [30, 15, 35, 20],
-    // series: [30, 30],
   },
 };
