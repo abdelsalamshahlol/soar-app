@@ -105,7 +105,7 @@ export default function Home() {
                 See all
               </a>
             </div>
-            <div className="flex flex-nowrap gap-[30px] overflow-x-auto">
+            <div className="flex flex-nowrap gap-[30px] overflow-x-auto lg:overflow-hidden">
               <div className="">
                 <CreditCard {...cardInfo} />
               </div>

@@ -20,7 +20,12 @@ export function QuickTransfers({ contacts }: QuickTransferProps) {
   };
 
   return (
-    <div className="w-full lg:max-w-[445px] h-[276px] rounded-[25px] font-inter py-[35px] px-[25px]  bg-white">
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4, easing: 'ease-out' }}
+      className="w-full lg:max-w-[445px] h-[276px] rounded-[25px] font-inter py-[35px] px-[25px]  bg-white"
+    >
       <ClientOnly>
         <div className="lg:-ml-9">
           <Carousel>
@@ -32,7 +37,7 @@ export function QuickTransfers({ contacts }: QuickTransferProps) {
       </ClientOnly>
 
       <TransferForm contact={selected} />
-    </div>
+    </motion.div>
   );
 }
 

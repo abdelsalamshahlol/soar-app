@@ -1,4 +1,7 @@
 import { clsx } from 'clsx';
+import { motion } from 'motion/react';
+import { useTilt } from '~/util/animations';
+
 export interface CreditCardProps {
   balance: string;
   currency: string;
@@ -18,10 +21,20 @@ export function CreditCard({
   theme,
   cardLogo = '/resources/icons/mastercard-1.png',
 }: CreditCardProps) {
+  const { cardRef, clampedRotateX, clampedRotateY, handleMouseMove, handleMouseLeave } = useTilt();
+
   return (
-    <div
+    <motion.div
+      ref={cardRef}
+      style={{
+        perspective: 4000,
+        rotateX: clampedRotateX,
+        rotateY: clampedRotateY,
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className={clsx(
-        'w-[350px] h-[235px] rounded-[25px]  overflow-hidden font-lato',
+        'w-[350px] h-[235px] rounded-[25px]  overflow-hidden font-lato select-none cursor-pointer',
         theme === 'dark'
           ? 'bg-[linear-gradient(107.38deg,_#5B5A6F_2.61%,_#000000_101.2%)] text-white'
           : 'bg-white border border-[rgba(223,234,242,1)]'
@@ -98,6 +111,6 @@ export function CreditCard({
           <img src={cardLogo} alt="Credit card provider logo" width={44} height={30} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

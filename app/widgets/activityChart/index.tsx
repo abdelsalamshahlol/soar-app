@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BarChart } from 'chartist';
 import { clsx } from 'clsx';
 import 'chartist/dist/index.css';
 import './styles.scss';
+import { motion } from 'motion/react';
 
 export interface ActivityChartProps {
   labels: string[];
@@ -43,7 +44,10 @@ export function ActivityChart({ labels, series, srTitle = 'Bar chart data' }: Ac
   }, [labels, series]);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, easing: 'ease-out' }}
       className="bg-white rounded-[25px] w-full lg:w-[730px] h-[322px]"
       aria-label={`${srTitle} chart`}
       role="graphics-document"
@@ -69,6 +73,6 @@ export function ActivityChart({ labels, series, srTitle = 'Bar chart data' }: Ac
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }

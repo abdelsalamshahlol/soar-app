@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Interpolation, LineChart } from 'chartist';
 import { clsx } from 'clsx';
 import './styles.scss';
+import { motion } from 'motion/react';
 
 export interface BalanceHistoryChartProps {
   labels: string[];
@@ -44,7 +45,10 @@ export function Index({ labels, series, srTitle = 'Line chart with area data' }:
   }, [labels, series]);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, easing: 'ease-out' }}
       className="bg-white rounded-[25px] w-full xl:w-[635px] h-[276px]"
       aria-label={`${srTitle} chart`}
       role="graphics-document"
@@ -70,6 +74,6 @@ export function Index({ labels, series, srTitle = 'Line chart with area data' }:
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }
