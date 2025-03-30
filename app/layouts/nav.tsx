@@ -23,7 +23,7 @@ export function Nav({ classList }: NavProps) {
           tabIndex={0}
         />
         <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-dark-gray" aria-hidden="true">
-          <use xlinkHref="/public/resources/icons/nav/sprite.svg#icon-search" />
+          <use xlinkHref="resources/icons/nav/sprite.svg#icon-search" />
         </svg>
 
         <button
@@ -32,7 +32,7 @@ export function Nav({ classList }: NavProps) {
           tabIndex={0}
         >
           <svg className="w-[25px] h-[25px] mx-auto" aria-hidden="true">
-            <use xlinkHref="/public/resources/icons/nav/sprite.svg#icon-cog" />
+            <use xlinkHref="resources/icons/nav/sprite.svg#icon-cog" />
           </svg>
         </button>
 
@@ -42,12 +42,12 @@ export function Nav({ classList }: NavProps) {
           tabIndex={0}
         >
           <svg className="w-[25px] h-[25px] mx-auto" aria-hidden="true">
-            <use xlinkHref="/public/resources/icons/nav/sprite.svg#icon-bell" />
+            <use xlinkHref="resources/icons/nav/sprite.svg#icon-bell" />
           </svg>
         </button>
 
         <div className="ml-[30px] rounded-full overflow-hidden h-[60px] w-[60px] outline-none focus:ring-2 focus:ring-blue-400">
-          <img src="/public/resources/imgs/avatar.png" alt="User avatar" width={60} height={60} tabIndex={0} />
+          <img src="resources/imgs/avatar.png" alt="User avatar" width={60} height={60} tabIndex={0} />
         </div>
       </div>
     </div>
