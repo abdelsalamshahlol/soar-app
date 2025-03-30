@@ -34,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="grid grid-cols-[250px_1fr] grid-rows-[100px_1fr] h-screen">
           <Sidebar classList="row-span-2" />
           <Nav />
-          <main className="bg-gray-100 p-6">{children}</main>
+          <main className="bg-gray-100">{children}</main>
         </div>
         <ScrollRestoration />
         <Scripts />

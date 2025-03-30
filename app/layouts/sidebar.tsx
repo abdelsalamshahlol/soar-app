@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router';
+import { NavLink, useLocation } from 'react-router';
 import { clsx } from 'clsx';
 interface NavProps {
   classList?: string;
@@ -54,7 +54,7 @@ const navItems = [
 ];
 
 export function Sidebar({ classList }: NavProps) {
-  const [active, setActive] = useState<string>('/');
+  const location = useLocation();
   const [indicatorTop, setIndicatorTop] = useState<number>(0);
   const navRef = useRef<HTMLElement>(null);
 
@@ -64,7 +64,7 @@ export function Sidebar({ classList }: NavProps) {
     if (activeItem) {
       setIndicatorTop(activeItem.offsetTop);
     }
-  }, [active]);
+  }, [location.pathname]);
 
   return (
     <aside
@@ -88,22 +88,23 @@ export function Sidebar({ classList }: NavProps) {
 
         <ul className="space-y-10">
           {navItems.map((item) => (
-            <li
-              key={item.name}
-              onClick={() => setActive(item.path)}
-              className={clsx(
-                'flex font-medium text-lg leading-none gap-x-[26px] items-center cursor-pointer transition-all ease-out',
-                {
-                  'text-dark-gray-tint': active !== item.path,
-                  'text-dark-gray active': active == item.path,
-                }
-              )}
-            >
-              <svg className="w-[25px] h-[25px] fill-current">
-                <use xlinkHref={`resources/icons/nav/sprite.svg#icon-${item.icon}`} />
-              </svg>
+            <li key={item.name}>
+              <NavLink
+                to={item.path}
+                className={clsx(
+                  'flex font-medium text-lg leading-none gap-x-[26px] items-center cursor-pointer transition-all ease-out',
+                  {
+                    'text-dark-gray-tint': location.pathname !== item.path,
+                    'text-dark-gray active': location.pathname == item.path,
+                  }
+                )}
+              >
+                <svg className="w-[25px] h-[25px] fill-current">
+                  <use xlinkHref={`resources/icons/nav/sprite.svg#icon-${item.icon}`} />
+                </svg>
 
-              <span>{item.name}</span>
+                <span>{item.name}</span>
+              </NavLink>
             </li>
           ))}
         </ul>
